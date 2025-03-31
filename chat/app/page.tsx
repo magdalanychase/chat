@@ -1,20 +1,17 @@
 "use client"
 
 import { useChat } from "@ai-sdk/react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit, status } = useChat()
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 p-4">
-      <Card className="w-full max-w-2xl">
-        <CardHeader className="border-b">
-          <CardTitle>AI Chat</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[60vh] overflow-y-auto p-4 space-y-4">
+      <div className="w-full max-w-2xl">
+        <div className="border-b">
+          <div>AI Chat</div>
+        </div>
+        <div className="h-[60vh] overflow-y-auto p-4 space-y-4">
           {messages.length === 0 && (
             <div className="text-center text-gray-500 mt-8">Start a conversation by typing a message below</div>
           )}
@@ -42,22 +39,22 @@ export default function Chat() {
               </div>
             </div>
           )}
-        </CardContent>
-        <CardFooter className="border-t p-4">
+        </div>
+        <div className="border-t p-4">
           <form onSubmit={handleSubmit} className="flex w-full space-x-2">
-            <Input
+            <input
               value={input}
               onChange={handleInputChange}
               placeholder="Type your message..."
               className="flex-grow"
               disabled={status === "streaming"}
             />
-            <Button type="submit" disabled={status === "streaming" || input.trim() === ""}>
+            <button type="submit" disabled={status === "streaming" || input.trim() === ""}>
               Send
-            </Button>
+            </button>
           </form>
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </div>
   )
 }

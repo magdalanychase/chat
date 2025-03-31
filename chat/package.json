@@ -12,6 +12,7 @@
     "@ai-sdk/react": "^1.2.5",
     "@openrouter/ai-sdk-provider": "^0.4.5",
     "ai": "^4.2.10",
+    "dotenv": "^16.4.7",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

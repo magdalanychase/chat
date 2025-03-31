@@ -1,8 +1,11 @@
 import { streamText } from "ai"
 import { createOpenRouter } from "@openrouter/ai-sdk-provider"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const openrouter = createOpenRouter({
-    apiKey: OPENROUTER_API_KEY,
+    apiKey: process.env.OPENROUTER_API_KEY,
 });
 
 const medium = openrouter("deepseek/deepseek-chat-v3-0324:free")
